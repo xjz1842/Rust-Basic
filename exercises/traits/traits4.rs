@@ -23,8 +23,9 @@ impl Licensed for SomeSoftware {}
 impl Licensed for OtherSoftware {}
 
 // YOU MAY ONLY CHANGE THE NEXT LINE
-fn compare_license_types(software: ??, software_two: ??) -> bool {
-    software.licensing_info() == software_two.licensing_info()
+fn compare_license_types(software: impl Licensed,
+     software_two: impl Licensed) -> bool {
+     software.licensing_info() == software_two.licensing_info()
 }
 
 #[cfg(test)]
